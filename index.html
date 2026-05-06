@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#2D1B69">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Feekool Português 📦 — Готовые сборки форума для изучения португальского | Шаблоны под любые цели</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo: #2D1B69;
+            --indigo-light: #4A36A0;
+            --gold: #D4A017;
+            --gold-light: #F5D56A;
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --text-main: #1A1A2E;
+            --text-muted: #4A4A5A;
+            --success: #00A86B;
+            --border: #E8E6E1;
+            --shadow-soft: 0 4px 20px rgba(45, 27, 105, 0.08);
+            --shadow-hover: 0 12px 40px rgba(45, 27, 105, 0.18);
+            --radius-lg: clamp(18px, 4vw, 24px);
+            --radius-xl: clamp(24px, 5.5vw, 36px);
+            --radius-pill: 9999px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--cream);
+            color: var(--text-main);
+            line-height: 1.65;
+            scroll-behavior: smooth;
+            font-size: clamp(14px, 1.8vw, 16px);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 24px);
+        }
+        
+        /* Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: clamp(14px, 3.5vw, 20px) 0;
+            border-bottom: 1px solid var(--border);
+            gap: clamp(12px, 3vw, 16px);
+            position: sticky;
+            top: 0;
+            background: rgba(250, 248, 245, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 3vw, 16px);
+            min-width: 0;
+        }
+        .brand-icon {
+            width: clamp(42px, 9vw, 48px);
+            height: clamp(42px, 9vw, 48px);
+            background: var(--indigo);
+            color: var(--gold);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(20px, 5.5vw, 26px);
+            box-shadow: 0 4px 12px rgba(45, 27, 105, 0.25);
+            font-weight: 700;
+        }
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.45rem, 4.2vw, 1.8rem);
+            font-weight: 800;
+            color: var(--indigo);
+            line-height: 1.15;
+        }
+        .brand p {
+            font-size: clamp(0.76rem, 2.4vw, 0.86rem);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .btn-group {
+            display: flex;
+            gap: clamp(10px, 2.5vw, 14px);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(11px, 2.8vw, 13px) clamp(20px, 5vw, 26px);
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: clamp(0.92rem, 2.9vw, 1rem);
+            text-align: center;
+            min-height: 44px;
+            min-width: 44px;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--indigo);
+            color: var(--gold);
+            box-shadow: 0 4px 16px rgba(45, 27, 105, 0.2);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45, 27, 105, 0.35); }
+        .btn-outline {
+            background: transparent;
+            border-color: var(--indigo);
+            color: var(--indigo);
+        }
+        .btn-outline:hover { background: rgba(45, 27, 105, 0.06); transform: translateY(-1px); }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--indigo);
+            box-shadow: 0 4px 14px rgba(212, 160, 23, 0.35);
+            font-weight: 700;
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(212, 160, 23, 0.5); }
+        .btn-large { padding: clamp(14px, 3.5vw, 16px) clamp(28px, 7vw, 38px); font-size: clamp(0.98rem, 3.2vw, 1.06rem); }
+        .btn-full-mobile { width: 100%; max-width: 320px; }
+        
+        /* Hero */
+        .hero {
+            padding: clamp(48px, 10vw, 72px) 0 clamp(36px, 8vw, 48px);
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(45, 27, 105, 0.08);
+            color: var(--indigo);
+            padding: clamp(7px, 2vw, 9px) clamp(16px, 4vw, 20px);
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: clamp(0.88rem, 2.8vw, 0.98rem);
+            margin-bottom: clamp(20px, 5vw, 28px);
+            border: 1px solid rgba(45, 27, 105, 0.15);
+        }
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6.8vw, 3rem);
+            font-weight: 800;
+            color: var(--indigo);
+            margin-bottom: clamp(18px, 4.5vw, 26px);
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: clamp(1.04rem, 3.8vw, 1.22rem);
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 0 auto clamp(24px, 6vw, 34px);
+            line-height: 1.55;
+        }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: clamp(12px, 3vw, 16px); justify-content: center; }
+        
+        /* Quick Access */
+        .quick-access {
+            display: flex; flex-wrap: wrap; gap: clamp(10px, 2.5vw, 14px); justify-content: center;
+            margin: clamp(22px, 5.5vw, 44px) 0;
+            padding: clamp(14px, 3.5vw, 18px);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* Sections */
+        .section { padding: clamp(48px, 10vw, 72px) 0; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 5.4vw, 2.15rem);
+            font-weight: 700;
+            margin-bottom: clamp(24px, 6vw, 40px);
+            text-align: center;
+            color: var(--indigo);
+        }
+        
+        /* RELEASES / BUILDS SECTION */
+        .release-filters {
+            display: flex; flex-wrap: wrap; gap: clamp(8px, 2vw, 12px); justify-content: center;
+            margin-bottom: clamp(28px, 7vw, 44px);
+        }
+        .filter-btn {
+            padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
+            border-radius: var(--radius-pill);
+            border: 2px solid var(--border);
+            background: var(--white);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: clamp(0.86rem, 2.6vw, 0.96rem);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--indigo);
+            background: var(--indigo);
+            color: var(--white);
+        }
+        
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+            gap: clamp(20px, 5vw, 32px);
+        }
+        .release-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: clamp(22px, 5vw, 30px);
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .release-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--indigo-light);
+        }
+        .release-card.hidden { display: none; }
+        .release-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+        .release-name { font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 3.5vw, 1.3rem); font-weight: 700; color: var(--indigo); line-height: 1.25; }
+        .release-version { font-size: clamp(0.72rem, 2.2vw, 0.8rem); font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill); white-space: nowrap; }
+        .ver-new { background: var(--success); color: white; }
+        .ver-popular { background: var(--gold); color: var(--indigo); }
+        .ver-stable { background: var(--indigo); color: var(--white); }
+        .ver-beta { background: #FF6B6B; color: white; }
+        
+        .release-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .tag { font-size: clamp(0.72rem, 2.2vw, 0.8rem); padding: 4px 10px; background: rgba(45, 27, 105, 0.06); border-radius: 6px; color: var(--indigo-light); font-weight: 500; }
+        
+        .release-desc { color: var(--text-muted); font-size: clamp(0.9rem, 2.8vw, 0.98rem); margin-bottom: 18px; line-height: 1.55; min-height: 80px; }
+        .release-features { list-style: none; margin-bottom: 18px; }
+        .release-features li { font-size: clamp(0.84rem, 2.6vw, 0.92rem); color: var(--text-muted); padding-left: 22px; position: relative; margin-bottom: 6px; }
+        .release-features li::before { content: "✓"; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+        
+        .release-card .btn { width: 100%; justify-content: center; }
+        
+        /* Install Steps */
+        .steps {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: clamp(26px, 6vw, 40px) clamp(22px, 5vw, 34px);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            margin-top: clamp(20px, 5vw, 32px);
+        }
+        .step-list { counter-reset: step; }
+        .step-item {
+            display: flex; gap: clamp(16px, 4vw, 22px); align-items: flex-start; counter-increment: step;
+            margin-bottom: clamp(20px, 5vw, 28px); position: relative; padding-left: clamp(24px, 6vw, 32px);
+        }
+        .step-item::before {
+            content: counter(step); position: absolute; left: 0; top: 2px;
+            width: clamp(34px, 8vw, 40px); height: clamp(34px, 8vw, 40px);
+            background: var(--indigo); color: var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: clamp(1rem, 3.2vw, 1.15rem);
+        }
+        .step-text strong { display: block; font-size: clamp(1rem, 3.1vw, 1.08rem); margin-bottom: 6px; color: var(--indigo); font-weight: 700; }
+        .step-text a { color: var(--indigo); text-decoration: none; border-bottom: 2px dashed rgba(45, 27, 105, 0.3); font-weight: 500; transition: border-bottom-style 0.2s; }
+        .step-text a:hover { border-bottom-style: solid; color: var(--gold); }
+        
+        .alt-install {
+            background: linear-gradient(135deg, rgba(212,160,23,0.1), rgba(245,248,245,0.8));
+            border-radius: clamp(18px, 4.5vw, 26px);
+            padding: clamp(16px, 4vw, 22px);
+            text-align: center;
+            margin-top: clamp(26px, 6.5vw, 38px);
+            font-size: clamp(0.92rem, 2.9vw, 1rem);
+            border-left: 4px solid var(--gold);
+            color: var(--text-muted);
+        }
+        .steps-cta { text-align: center; margin-top: clamp(24px, 6vw, 32px); }
+        
+        /* Why it works */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: clamp(22px, 5.5vw, 34px);
+        }
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: clamp(22px, 5vw, 28px);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+        .feature-icon { font-size: clamp(2rem, 6vw, 2.5rem); margin-bottom: 12px; }
+        .feature-card h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 3.6vw, 1.3rem); margin-bottom: 10px; color: var(--indigo); }
+        .feature-card p { color: var(--text-muted); font-size: clamp(0.9rem, 2.8vw, 0.98rem); line-height: 1.55; }
+        
+        /* CTA Block */
+        .cta-block {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(45,27,105,0.06), rgba(212,160,23,0.08));
+            border-radius: var(--radius-xl);
+            padding: clamp(40px, 9vw, 56px) clamp(24px, 5.5vw, 32px);
+            margin: clamp(28px, 7vw, 52px) 0;
+            border: 2px solid rgba(45, 27, 105, 0.15);
+        }
+        .offer-badge {
+            background: var(--indigo);
+            color: var(--gold);
+            border-radius: var(--radius-pill);
+            padding: clamp(9px, 2.4vw, 12px) clamp(18px, 4.5vw, 26px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: clamp(18px, 4.5vw, 26px);
+            font-weight: 700;
+            font-size: clamp(0.92rem, 2.9vw, 1rem);
+            box-shadow: 0 4px 16px rgba(45, 27, 105, 0.25);
+        }
+        .cta-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: clamp(14px, 3.5vw, 20px);
+            color: var(--indigo);
+        }
+        .cta-block p { max-width: 700px; margin: 0 auto clamp(24px, 6vw, 34px); font-size: clamp(1rem, 3.2vw, 1.08rem); color: var(--text-muted); }
+        .cta-buttons { display: flex; flex-wrap: wrap; gap: clamp(12px, 3vw, 16px); justify-content: center; margin: clamp(18px, 4.5vw, 26px) 0; }
+        .cta-note {
+            background: var(--white);
+            border-radius: var(--radius-pill);
+            padding: clamp(14px, 3.5vw, 18px) clamp(24px, 6vw, 32px);
+            max-width: 600px;
+            margin: clamp(24px, 6vw, 38px) auto 0;
+            font-size: clamp(0.94rem, 3vw, 1.02rem);
+            border: 2px solid var(--gold);
+            color: var(--text-muted);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* Footer */
+        footer {
+            padding: clamp(36px, 8vw, 52px) 0 clamp(28px, 7vw, 44px);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: clamp(0.84rem, 2.5vw, 0.94rem);
+            line-height: 1.7;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            margin-top: clamp(24px, 6vw, 44px);
+        }
+        footer a { color: var(--indigo); text-decoration: none; font-weight: 600; border-bottom: 2px dashed rgba(45, 27, 105, 0.35); transition: border-bottom-style 0.2s; }
+        footer a:hover { border-bottom-style: solid; color: var(--gold); }
+        
+        /* Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: clamp(14px, 3.5vw, 22px);
+            left: clamp(14px, 3.5vw, 22px);
+            right: clamp(14px, 3.5vw, 22px);
+            z-index: 999;
+            padding: clamp(10px, 2.5vw, 14px);
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 12px 36px rgba(45, 27, 105, 0.3);
+            animation: slideUp 0.35s ease;
+            border: 2px solid var(--gold);
+        }
+        @keyframes slideUp { from { transform: translateY(110px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .mobile-cta .btn { width: 100%; padding: clamp(13px, 3.3vw, 15px); font-size: clamp(0.98rem, 3.1vw, 1.06rem); font-weight: 700; }
+        
+        /* PT phrase highlight */
+        .pt-phrase { font-style: italic; color: var(--indigo-light); font-weight: 600; background: rgba(74, 54, 160, 0.08); padding: 3px 9px; border-radius: 6px; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: stretch; text-align: center; }
+            .logo-area { justify-content: center; }
+            .btn-group { justify-content: center; flex: none; }
+            .hero-buttons .btn { flex: 1; min-width: 145px; }
+            .step-item { flex-direction: column; align-items: center; text-align: center; padding-left: 0; }
+            .step-item::before { position: relative; left: auto; top: auto; margin-bottom: 12px; }
+            .cta-buttons .btn { flex: 1; min-width: 165px; max-width: 290px; }
+        }
+        @media (max-width: 480px) {
+            .btn-group { width: 100%; }
+            .btn-group .btn { flex: 1; min-width: 0; font-size: 0.9rem; padding: 10px 16px; }
+            .hero h2 { font-size: 1.85rem; }
+            .section-title { font-size: 1.5rem; }
+            .gallery, .quick-access { flex-direction: column; }
+            .quick-access .btn { width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .mobile-cta { display: block; }
+            .desktop-only { display: none; }
+        }
+        @media (min-width: 769px) {
+            .mobile-only { display: none; }
+        }
+        
+        /* Accessibility */
+        .btn:focus, a:focus, button:focus, .filter-btn:focus { outline: 3px solid var(--gold); outline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <nav class="navbar" aria-label="Основная навигация">
+        <div class="logo-area">
+            <div class="brand-icon" aria-hidden="true">📦</div>
+            <div class="brand">
+                <h1>Feekool Português</h1>
+                <p>готовые сборки для языкового обучения</p>
+            </div>
+        </div>
+        <div class="btn-group">
+            <a href="https://feekool.github.io" target="_blank" class="btn btn-outline" aria-label="Открыть демо">👁️ Демо</a>
+            <a href="#contact" class="btn btn-primary">✉️ Связаться</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-badge">📦 Готовые конфигурации • 🇵🇹 <span class="pt-phrase">Tudo pronto!</span> • ⚡ Запуск за 60 сек</div>
+        <h2 id="hero-title">Учи португальский.<br>Не изобретай форум.</h2>
+        <p>Выбери готовую сборку под свой уровень, цель или формат обучения. Скопируй репозиторий — и получи структурированное пространство с правильными разделами, метками и навигацией.</p>
+        
+        <div class="hero-buttons">
+            <a href="https://feekool.github.io" target="_blank" class="btn btn-primary btn-large btn-full-mobile">🔍 Смотреть все сборки</a>
+            <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-gold btn-large btn-full-mobile">📥 Скачать шаблон</a>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <div class="quick-access" role="navigation" aria-label="Быстрые ссылки">
+        <a href="#releases" class="btn btn-outline">📦 Сборки</a>
+        <a href="#install" class="btn btn-outline">⚙️ Установка</a>
+        <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Демо</a>
+        <a href="#contact" class="btn btn-outline">💬 Поддержка</a>
+    </div>
+
+    <!-- RELEASES SECTION -->
+    <section class="section" id="releases" aria-labelledby="releases-title">
+        <h2 id="releases-title" class="section-title">📦 Готовые сборки форума: выбери свой сценарий</h2>
+        
+        <div class="release-filters" role="tablist" aria-label="Фильтр сборок">
+            <button class="filter-btn active" data-filter="all">Все сборки</button>
+            <button class="filter-btn" data-filter="beginner">Начинающие</button>
+            <button class="filter-btn" data-filter="conversation">Разговорный</button>
+            <button class="filter-btn" data-filter="business">Бизнес</button>
+            <button class="filter-btn" data-filter="exam">Экзамены</button>
+            <button class="filter-btn" data-filter="teacher">Преподавателям</button>
+        </div>
+
+        <div class="releases-grid" id="releasesGrid">
+            <!-- Starter Pack -->
+            <article class="release-card" data-category="beginner">
+                <div class="release-header">
+                    <h3 class="release-name">Starter Pack<br><span style="font-weight:400; font-size:0.9em; color:var(--text-muted)">A1-A2 • Основы языка</span></h3>
+                    <span class="release-version ver-popular">POPULAR</span>
+                </div>
+                <div class="release-tags">
+                    <span class="tag">🇧🇷 PT-BR</span> <span class="tag">🇵🇹 PT-PT</span> <span class="tag">📖 Грамматика</span>
+                </div>
+                <p class="release-desc">Идеальный старт: алфавит, базовые диалоги, числа, цвета, первые фразы. Разделы с постепенным усложнением и чек-листами прогресса.</p>
+                <ul class="release-features">
+                    <li>5 тематических разделов</li>
+                    <li>Карточки слов с аудио</li>
+                    <li>Еженедельные микро-челленджи</li>
+                </ul>
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Посмотреть в демо</a>
+            </article>
+
+            <!-- Conversation Club -->
+            <article class="release-card" data-category="conversation">
+                <div class="release-header">
+                    <h3 class="release-name">Conversação Livre<br><span style="font-weight:400; font-size:0.9em; color:var(--text-muted)">B1-B2 • Живое общение</span></h3>
+                    <span class="release-version ver-new">NEW</span>
+                </div>
+                <div class="release-tags">
+                    <span class="tag">🎧 Голосовые</span> <span class="tag">👥 Носители</span> <span class="tag">💬 Дискуссии</span>
+                </div>
+                <p class="release-desc">Фокус на разговорной практике: темы недели, голосовые ответы, корректировка произношения от носителей, парный обмен языками.</p>
+                <ul class="release-features">
+                    <li>Формат «вопрос-ответ» с таймером</li>
+                    <li>Интеграция аудио-ответов</li>
+                    <li>Система парного обмена (Language Swap)</li>
+                </ul>
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Посмотреть в демо</a>
+            </article>
+
+            <!-- Business Portuguese -->
+            <article class="release-card" data-category="business">
+                <div class="release-header">
+                    <h3 class="release-name">Português para Negócios<br><span style="font-weight:400; font-size:0.9em; color:var(--text-muted)">B2-C1 • Деловой стиль</span></h3>
+                    <span class="release-version ver-stable">v2.1</span>
+                </div>
+                <div class="release-tags">
+                    <span class="tag">💼 Переписка</span> <span class="tag">📊 Презентации</span> <span class="tag">🤝 Нетворкинг</span>
+                </div>
+                <p class="release-desc">Деловой португальский: шаблоны писем, переговоры, презентации, корпоративная этика Бразилии/Португалии, кейсы из практики.</p>
+                <ul class="release-features">
+                    <li>Библиотека шаблонов документов</li>
+                    <li>Разбор реальных бизнес-кейсов</li>
+                    <li>Симуляция собеседований</li>
+                </ul>
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Посмотреть в демо</a>
+            </article>
+
+            <!-- Exam Prep -->
+            <article class="release-card" data-category="exam">
+                <div class="release-header">
+                    <h3 class="release-name">CAPLE / CELPE-Bras Prep<br><span style="font-weight:400; font-size:0.9em; color:var(--text-muted)">A2-C2 • Подготовка к экзаменам</span></h3>
+                    <span class="release-version ver-beta">BETA</span>
+                </div>
+                <div class="release-tags">
+                    <span class="tag">📝 Тесты</span> <span class="tag">⏱️ Таймер</span> <span class="tag">✅ Разбор ошибок</span>
+                </div>
+                <p class="release-desc">Структурированная подготовка: типовые задания, тайминг, самопроверка, разборы сложных тем, чек-листы критериев оценивания.</p>
+                <ul class="release-features">
+                    <li>Архив прошлых экзаменов</li>
+                    <li>Система самопроверки по критериям</li>
+                    <li>Тренировочные сессии в группе</li>
+                </ul>
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Посмотреть в демо</a>
+            </article>
+
+            <!-- Teacher Toolkit -->
+            <article class="release-card" data-category="teacher">
+                <div class="release-header">
+                    <h3 class="release-name">Teacher Toolkit<br><span style="font-weight:400; font-size:0.9em; color:var(--text-muted)">Для преподавателей и репетиторов</span></h3>
+                    <span class="release-version ver-new">NEW</span>
+                </div>
+                <div class="release-tags">
+                    <span class="tag">📋 Уроки</span> <span class="tag">📊 Прогресс</span> <span class="tag">👩‍🏫 Группы</span>
+                </div>
+                <p class="release-desc">Инструменты для учителя: расписание, домашние задания, трекер прогресса учеников, закрытые группы, шаблоны фидбека.</p>
+                <ul class="release-features">
+                    <li>Админ-панель для репетитора</li>
+                    <li>Система ДЗ и проверки</li>
+                    <li>Аналитика активности группы</li>
+                </ul>
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Посмотреть в демо</a>
+            </article>
+
+            <!-- Culture & Travel -->
+            <article class="release-card" data-category="conversation">
+                <div class="release-header">
+                    <h3 class="release-name">Cultura & Viagens<br><span style="font-weight:400; font-size:0.9em; color:var(--text-muted)">A1-B1 • Культура и путешествия</span></h3>
+                    <span class="release-version ver-stable">v1.4</span>
+                </div>
+                <div class="release-tags">
+                    <span class="tag">🎵 Музыка</span> <span class="tag">🍽️ Кухня</span> <span class="tag">✈️ Путешествия</span>
+                </div>
+                <p class="release-desc">Учи язык через культуру: разбор песен, рецепты, фразы для аэропортов/отелей/ресторанов, локальный сленг, истории из поездок.</p>
+                <ul class="release-features">
+                    <li>Еженедельные культурные темы</li>
+                    <li>Голосовые гиды по городам</li>
+                    <li>Пользовательские тревел-истории</li>
+                </ul>
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-outline">👁️ Посмотреть в демо</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Installation -->
+    <section class="section" id="install" aria-labelledby="install-title">
+        <h2 id="install-title" class="section-title">⚡ Как запустить выбранную сборку</h2>
+        <div class="steps">
+            <ol class="step-list">
+                <li class="step-item">
+                    <div class="step-text">
+                        <strong>1. GitHub аккаунт</strong>
+                        Создай бесплатный профиль на <a href="https://github.com" target="_blank">github.com</a>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-text">
+                        <strong>2. Выбери сборку</strong><br>
+                        Открой шаблон: <a href="https://github.com/feekool/feekool.github.io" target="_blank">github.com/feekool/feekool.github.io</a> и выбери нужную конфигурацию
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-text">
+                        <strong>3. Копируй репозиторий</strong><br>
+                        Нажми <strong>"Use this template"</strong> → <strong>"Create a new repository"</strong>. Назови, например, <span class="pt-phrase">"meu-portugues"</span>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-text">
+                        <strong>4. Включи GitHub Pages</strong><br>
+                        Settings → Pages → ветка <strong>main</strong> → Save. Через 30-60 сек форум онлайн!
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-text">
+                        <strong>5. Настрой под себя</strong><br>
+                        Редактируй `config.json` или HTML-файлы. Добавляй новые темы, меняй цвета, приглашай учеников.
+                    </div>
+                </li>
+            </ol>
+            
+            <div class="alt-install">
+                💡 <strong>Pro tip:</strong> Хочешь кастомную сборку под твою методику? <a href="https://github.com/feekool/feekool.github.io/issues" target="_blank">Напиши в Issues</a> — соберём индивидуальную версию.
+            </div>
+            
+            <div class="steps-cta">
+                <a href="https://feekool.github.io" target="_blank" class="btn btn-primary btn-large btn-full-mobile" style="margin-bottom: 14px;">👁️ Посмотреть демо перед запуском</a><br>
+                <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-gold btn-large btn-full-mobile">⚡ Создать форум сейчас</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why it works -->
+    <section class="section" aria-labelledby="why-title">
+        <h2 id="why-title" class="section-title">🎓 Почему это работает для изучения языка</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📐</div>
+                <h3>Структура снижает тревожность</h3>
+                <p>Готовые разделы и метки убирают хаос. Ученик знает, куда идти, что делать и как отслеживать прогресс.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Повторение без скуки</h3>
+                <p>Челленджи, темы недели и парная практика делают повторение естественным, а не механическим.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Сообщество > учебник</h3>
+                <p>Живые ответы носителей, разбор ошибок и поддержка группы ускоряют прогресс в 2-3 раза.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛠️</div>
+                <h3>Zero backend, 100% контроль</h3>
+                <p>Никаких серверов и подписок. Твой форум, твои правила. Обновляй, кастомизируй, масштабируй.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-block" id="contact" aria-labelledby="cta-title">
+        <div class="offer-badge">🚀 <span class="pt-phrase">Comece hoje mesmo!</span> Лучшее решение для языкового комьюнити</div>
+        <h3 id="cta-title">Выбери сборку. Запусти форум. Начни говорить.</h3>
+        <p>Не трать недели на настройку. Возьми готовую конфигурацию, адаптируй под себя и начни практику уже сегодня. <span class="pt-phrase">A prática leva à perfeição!</span></p>
+        
+        <div class="cta-buttons">
+            <a href="https://feekool.github.io" target="_blank" class="btn btn-primary btn-large">📦 Каталог сборок</a>
+            <a href="https://feekool.github.io" target="_blank" class="btn btn-outline btn-large">👁️ Живое демо</a>
+            <a href="https://github.com/feekool/feekool.github.io/issues" target="_blank" class="btn btn-gold btn-large">💬 Бесплатная консультация</a>
+        </div>
+        
+        <div class="cta-note">
+            ⚡ <strong>Помощь в настройке:</strong> Напишите нам — поможем выбрать сборку, настроить разделы и запустить первое приветственное сообщение для ваших учеников. <span class="pt-phrase">Estamos à disposição!</span>
+        </div>
+    </section>
+
+    <!-- Final buttons -->
+    <div style="display: flex; justify-content: center; gap: clamp(14px, 3.5vw, 26px); flex-wrap: wrap; margin: clamp(20px, 5vw, 46px) 0;" role="navigation" aria-label="Основные действия">
+        <a href="https://feekool.github.io" target="_blank" class="btn btn-primary btn-large">🎯 Демо-форум 🇧🇷</a>
+        <a href="https://feekool.github.io" target="_blank" class="btn btn-outline btn-large">👁️ Предпросмотр</a>
+        <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-gold btn-large">🐙 GitHub репозиторий</a>
+    </div>
+
+    <footer>
+        <p>© Feekool Português — готовые сборки форума для изучения языка на GitHub Pages.<br>
+        Open-source база + возможность кастомизации под онлайн-школы, репетиторов, языковые клубы.</p>
+        <p style="margin-top: 14px; font-weight: 500;">🚀 Без серверов • Без подписок • Только язык и прогресс</p>
+        <p style="margin-top: 14px;">
+            <a href="https://feekool.github.io" target="_blank">👁️ Открыть демо и начать сейчас</a> • 
+            <span class="pt-phrase" style="margin-left: 8px; font-weight: 600;">Obrigado e bons estudos! 📖✨</span>
+        </p>
+    </footer>
+</div>
+
+<!-- Mobile CTA -->
+<div class="mobile-cta" role="navigation" aria-label="Быстрый старт">
+    <a href="https://feekool.github.io" target="_blank" class="btn btn-primary" aria-label="Открыть демо-версию форума">
+        📦 Выбрать сборку и начать
+    </a>
+</div>
+
+<!-- Scripts -->
+<script>
+    (function() {
+        // Filter functionality
+        const filters = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.release-card');
+        
+        filters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filters.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Mobile CTA scroll behavior
+        const mobileCta = document.querySelector('.mobile-cta');
+        if (mobileCta) {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 350 && currentScroll > lastScroll) {
+                    mobileCta.style.transform = 'translateY(0)';
+                    mobileCta.style.opacity = '1';
+                } else if (currentScroll < 120) {
+                    mobileCta.style.transform = 'translateY(110px)';
+                    mobileCta.style.opacity = '0';
+                }
+                lastScroll = currentScroll;
+            }, { passive: true });
+        }
+        
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    })();
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Feekool Português",
+  "description": "Готовые сборки форума для изучения португальского языка. Starter Pack, Conversação Livre, Business Portuguese, Exam Prep и Teacher Toolkit. Запуск на GitHub Pages за 1 минуту.",
+  "applicationCategory": "LanguageLearningPlatform",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "RUB"
+  },
+  "url": "https://feekool.github.io",
+  "inLanguage": ["ru", "pt", "pt-BR", "pt-PT"],
+  "keywords": ["португальский язык", "готовый форум", "изучение языка", "онлайн-курсы", "репетиторство", "CAPLE", "CELPE-Bras", "языковое сообщество"]
+}
+</script>
+</body>
+</html>
